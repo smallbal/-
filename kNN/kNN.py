@@ -61,7 +61,7 @@ def file2matrix(filename):
     fr = open(filename)
     index = 0
     for line in fr.readlines():
-        line = line.strip()
+        line = line.strip()  # bytes.strip()或bytearray.strip()会返回一个去掉首尾相应字符的字符串，无参数则去掉ASCII码的空格。
         listFromLine = line.split('\t')
         returnMat[index,:] = listFromLine[0:3]
         classLabelVector.append(int(listFromLine[-1]))
